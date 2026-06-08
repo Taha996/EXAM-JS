@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vote Électronique — MIAGE Casa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <span>🗳️</span> Vote Électronique — MIAGE Casa
+</header>
+
+<nav>
+  <button class="active" onclick="showPage('candidats', this)"> Candidats</button>
+  <button onclick="showPage('voter', this)"> Voter</button>
+  <button onclick="showPage('resultats', this)"> Résultats</button>
+</nav>
+
+<div id="candidats" class="page active">
+  <p class="page-title">Les Candidats</p>
+  <div class="cards" id="cards-container">
+    <p style="color:#888;">Chargement des candidats...</p>
+  </div>
+</div>
+
+=<div id="voter" class="page">
+  <div class="vote-form">
+    <h2>🗳️ Voter</h2>
+    <label for="etudiant_id">Identifiant Étudiant</label>
+    <input type="text" id="etudiant_id" placeholder="Ex: ETU-2024-001" />
+    <label for="candidat_id">Choisir un Candidat</label>
+    <select id="candidat_id">
+      <option value="">-- Sélectionnez un candidat --</option>
+    </select>
+    <button onclick="soumettreVote()">Confirmer mon vote</button>
+    <div id="message"></div>
+  </div>
+</div>
+
+<div id="resultats" class="page">
+  <p class="page-title">📊 Résultats du Scrutin</p>
+  <p class="total-votes" id="total-votes"></p>
+  <div id="resultats-container"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
