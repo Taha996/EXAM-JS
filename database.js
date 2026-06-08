@@ -21,7 +21,6 @@ db.serialize(() => {
     )
   `);
 
-  // Insérer des candidats si la table est vide
   db.get('SELECT COUNT(*) as c FROM candidats', (err, row) => {
     if (row && row.c === 0) {
       const stmt = db.prepare('INSERT INTO candidats (nom, photo, programme) VALUES (?, ?, ?)');

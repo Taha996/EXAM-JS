@@ -109,6 +109,6 @@ function showPage(id, btn) {
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
   if (id === 'resultats') loadResultats();
-}
+} 
 
 loadCandidats();

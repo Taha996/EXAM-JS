@@ -7,7 +7,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// GET /api/candidats — Récupérer tous les candidats
 app.get('/api/candidats', (req, res) => {
   db.all('SELECT * FROM candidats', [], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
@@ -15,7 +14,6 @@ app.get('/api/candidats', (req, res) => {
   });
 });
 
-// POST /api/vote — Enregistrer un vote
 app.post('/api/vote', (req, res) => {
   const { etudiant_id, candidat_id } = req.body;
 
@@ -38,7 +36,6 @@ app.post('/api/vote', (req, res) => {
   });
 });
 
-// GET /api/resultats — Afficher les résultats
 app.get('/api/resultats', (req, res) => {
   db.all(`
     SELECT c.id, c.nom, c.photo, COUNT(v.id) as votes
